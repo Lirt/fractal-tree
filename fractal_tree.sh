@@ -8,7 +8,7 @@ Y=100
 L=32
 
 half=100
-half=$((half / 2))
+half=$((half / 2 - 1))
 
 declare -A visited
 
@@ -21,7 +21,7 @@ for (( n = 0; n < N; n++ )); do
   for (( i = 0 ; i < L; i++)); do
     for (( j = 0 ; j < Y; j++)); do
       if [ ${#visited[@]} -eq 0 ]; then
-        if (( j % half == 0 )) && (( j != 0 )); then
+        if (( j % half == 0 )) && (( j != 0 )) && (( j != 98 )); then
           echo -n "1"
         else
           echo -n "_"
